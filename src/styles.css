@@ -45,8 +45,8 @@ p { margin: 0; }
 :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 
 .container { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
-.section { padding: clamp(88px, 12vw, 168px) 0; }
-.section-tight { padding: clamp(64px, 8vw, 112px) 0; }
+.section { padding: clamp(56px, 6vw, 96px) 0; }
+.section-tight { padding: clamp(48px, 6vw, 88px) 0; }
 .bg-mist { background: var(--mist); }
 .bg-navy { background: var(--navy); color: #fff; }
 .bg-ink { background: var(--ink); color: #fff; }
@@ -66,7 +66,7 @@ p { margin: 0; }
 .display-m { font-size: clamp(1.75rem, 3vw, 2.75rem); }
 .lede { font-size: clamp(1.05rem, 1.4vw, 1.2rem); color: var(--muted); max-width: 52ch; }
 .bg-navy .lede, .bg-ink .lede, .on-dark .lede { color: var(--muted-light); }
-.section-head { display: flex; justify-content: space-between; align-items: end; gap: 32px; margin-bottom: clamp(40px, 6vw, 72px); flex-wrap: wrap; }
+.section-head { display: flex; justify-content: space-between; align-items: end; gap: 32px; margin-bottom: clamp(32px, 4vw, 56px); flex-wrap: wrap; }
 .section-head .eyebrow { margin-bottom: 18px; }
 
 /* Buttons */
@@ -152,7 +152,13 @@ body.menu-open { overflow: hidden; }
 .hero { position: relative; min-height: 100svh; color: #fff; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; background: var(--navy-deep); }
 .hero-media { position: absolute; inset: 0; }
 .hero-media img { width: 100%; height: 100%; object-fit: cover; animation: kenburns 14s var(--ease) both; }
-.hero-media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(13, 13, 12, 0.55) 0%, rgba(13, 13, 12, 0.12) 35%, rgba(13, 13, 12, 0.35) 62%, rgba(13, 13, 12, 0.86) 100%); }
+.hero-media::after {
+  content: ''; position: absolute; inset: 0;
+  background:
+    linear-gradient(90deg, rgba(13, 13, 12, 0.72) 0%, rgba(13, 13, 12, 0.5) 45%, rgba(13, 13, 12, 0.22) 100%),
+    linear-gradient(180deg, rgba(13, 13, 12, 0.45) 0%, rgba(13, 13, 12, 0) 28%, rgba(13, 13, 12, 0.25) 60%, rgba(13, 13, 12, 0.88) 100%);
+}
+.hero h1, .hero-sub, .page-hero-img h1 { text-shadow: 0 2px 28px rgba(0, 0, 0, 0.35); }
 @keyframes kenburns { from { transform: scale(1.12); } to { transform: scale(1); } }
 .hero-content { position: relative; padding-top: calc(var(--hdr) + 24px); padding-bottom: clamp(40px, 6vw, 64px); }
 .hero-content .eyebrow { color: rgba(255, 255, 255, 0.8); margin-bottom: 24px; display: flex; gap: 14px; align-items: center; }
@@ -194,23 +200,38 @@ body.menu-open { overflow: hidden; }
 .page-hero .lede { margin-top: 24px; }
 .page-hero-img { position: relative; color: #fff; min-height: 78svh; display: flex; align-items: flex-end; padding: calc(var(--hdr) + 40px) 0 clamp(48px, 6vw, 80px); overflow: hidden; border: 0; }
 .page-hero-img > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.page-hero-img::before { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(13, 13, 12, 0.5), rgba(13, 13, 12, 0.2) 40%, rgba(13, 13, 12, 0.85)); }
+.page-hero-img::before {
+  content: ''; position: absolute; inset: 0; z-index: 1;
+  background:
+    linear-gradient(90deg, rgba(13, 13, 12, 0.7) 0%, rgba(13, 13, 12, 0.45) 50%, rgba(13, 13, 12, 0.2) 100%),
+    linear-gradient(180deg, rgba(13, 13, 12, 0.45), rgba(13, 13, 12, 0.1) 40%, rgba(13, 13, 12, 0.88));
+}
 .page-hero-img .container { position: relative; z-index: 2; }
 .crumbs { display: flex; gap: 10px; margin-bottom: 26px; font: 500 11px/1 var(--body); letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
 .on-dark .crumbs { color: rgba(255, 255, 255, 0.7); }
 .crumbs a:hover { color: var(--gold-soft); }
 
 /* Statement + stats */
-.statement { display: grid; grid-template-columns: 1fr 1.4fr; gap: clamp(40px, 8vw, 120px); align-items: start; }
+.statement { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: clamp(40px, 7vw, 112px); align-items: center; }
+.statement .eyebrow { margin-bottom: 22px; }
 .statement p.lede { margin-top: 28px; }
 .statement-actions { margin-top: 40px; display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
-.stats { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: clamp(72px, 9vw, 128px); border-top: 1px solid var(--line); }
+.statement-media { position: relative; margin: 0 0 32px; }
+.statement-media .frame { aspect-ratio: 4 / 5; max-height: 640px; width: 100%; overflow: hidden; }
+.statement-media img { width: 100%; height: 115%; object-fit: cover; }
+.statement-card { position: absolute; right: -24px; bottom: -32px; width: min(280px, 70%); padding: 26px 28px; background: var(--navy); color: #fff; }
+.statement-card .eyebrow { color: var(--gold); margin-bottom: 10px; }
+.statement-card strong { display: block; font: 300 1.6rem/1.2 var(--display); }
+.statement-card span { display: block; margin-top: 8px; font-size: 14px; color: var(--muted-light); }
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: clamp(56px, 6vw, 96px); border-top: 1px solid var(--line); }
 .stat { padding: 32px 24px 0 0; }
 .stat + .stat { padding-left: 24px; border-left: 1px solid var(--line); }
 .stat strong { display: block; font: 300 clamp(2.6rem, 5vw, 4.4rem)/1 var(--display); letter-spacing: -0.02em; }
 .stat span { display: block; margin-top: 12px; }
 @media (max-width: 900px) {
   .statement { grid-template-columns: minmax(0, 1fr); }
+  .statement-media .frame { aspect-ratio: 4 / 3; }
+  .statement-card { right: 16px; }
   .stats { grid-template-columns: 1fr 1fr; }
   .stat:nth-child(3) { padding-left: 0; border-left: 0; }
   .stat:nth-child(n + 3) { border-top: 1px solid var(--line); margin-top: 32px; }
@@ -329,7 +350,7 @@ input[type='range'] { width: 100%; accent-color: var(--gold); }
 @media (max-width: 900px) { .insight-grid { grid-template-columns: 1fr; } }
 
 /* CTA band */
-.cta-band { position: relative; color: #fff; overflow: hidden; padding: clamp(120px, 16vw, 220px) 0; text-align: center; background: var(--navy-deep); }
+.cta-band { position: relative; color: #fff; overflow: hidden; padding: clamp(96px, 11vw, 168px) 0; text-align: center; background: var(--navy-deep); }
 .cta-band > img { position: absolute; inset: -10% 0; width: 100%; height: 120%; object-fit: cover; opacity: 0.45; }
 .cta-band .container { position: relative; }
 .cta-band h2 { max-width: 16ch; margin: 22px auto 0; }
