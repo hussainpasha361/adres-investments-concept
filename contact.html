@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en" class="js">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — Adres Investments</title>
+  <meta name="description" content="Book a private consultation with an Adres Investments advisor in Istanbul." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="src/styles.css" />
+  <script>setTimeout(() => { if (!window.__revealReady) document.documentElement.classList.remove('js'); }, 2500);</script>
+</head>
+<body data-page="contact" data-header="solid">
+  <div id="header-slot"></div>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Contact</span></nav>
+        <h1 class="display-xl"><span class="line"><span>Let's talk about</span></span><span class="line"><span>your next address.</span></span></h1>
+        <p class="lede">Tell us a little about your goals. An advisor will reply within one business day, in your language.</p>
+      </div>
+    </section>
+
+    <section class="section-tight">
+      <div class="container contact-grid">
+        <div id="enquiryWrap" data-reveal>
+          <form class="form" id="enquiry">
+            <label><span>Full name</span><input name="name" required autocomplete="name" /></label>
+            <label><span>Email</span><input name="email" type="email" required autocomplete="email" /></label>
+            <label><span>Phone / WhatsApp</span><input name="phone" type="tel" autocomplete="tel" /></label>
+            <label><span>Country of residence</span><input name="residence" autocomplete="country-name" /></label>
+            <div class="full">
+              <span class="eyebrow field-label">I'm interested in</span>
+              <div class="chips">
+                <label><input type="checkbox" name="interest" value="citizenship" /><span>Citizenship</span></label>
+                <label><input type="checkbox" name="interest" value="residency" /><span>Residency</span></label>
+                <label><input type="checkbox" name="interest" value="investment" /><span>Investment</span></label>
+                <label><input type="checkbox" name="interest" value="home" /><span>A home</span></label>
+                <label><input type="checkbox" name="interest" value="management" /><span>Property management</span></label>
+              </div>
+            </div>
+            <label><span>Preferred market</span>
+              <select name="market"><option>Not sure yet</option><option>Türkiye</option><option>Dubai</option><option>Greece</option><option>Spain</option><option>United Kingdom</option><option>Cyprus</option><option>Indonesia</option></select>
+            </label>
+            <label><span>Budget</span>
+              <select name="budget"><option>USD 200K – 400K</option><option>USD 400K – 750K</option><option>USD 750K – 1.5M</option><option>USD 1.5M +</option></select>
+            </label>
+            <label class="full"><span>Message</span><textarea name="message" rows="4"></textarea></label>
+            <div class="full form-foot">
+              <p>By sending this form you agree to our privacy policy. We never share your details.</p>
+              <button class="btn btn-ink" type="submit" data-icon="arrow">Send enquiry</button>
+            </div>
+          </form>
+          <div class="form-success" role="status">
+            <p class="eyebrow gold">Received</p>
+            <h3 style="margin-top:14px">Thank you. An advisor will be in touch shortly.</h3>
+            <p class="lede">If it's urgent, message us on WhatsApp at +90 533 193 31 14.</p>
+          </div>
+        </div>
+
+        <aside class="contact-aside" data-reveal>
+          <div><p class="eyebrow">Head office</p><h3>Istanbul, Türkiye</h3></div>
+          <div><p class="eyebrow">Call</p><h3><a href="tel:+905331933114">+90 533 193 31 14</a></h3></div>
+          <div><p class="eyebrow">Email</p><h3><a href="mailto:info@adresinvestments.com">info@adresinvestments.com</a></h3></div>
+          <div><p class="eyebrow">Hours</p><h3>Mon – Sat, 09:00 – 19:00 (GMT+3)</h3></div>
+          <div class="wa-card on-dark">
+            <p class="eyebrow gold">Prefer to chat?</p>
+            <h3>WhatsApp an advisor</h3>
+            <p>English, Türkçe, العربية, Русский, اردو, فارسی and more.</p>
+            <a class="btn btn-gold" href="https://wa.me/905331933114" target="_blank" rel="noopener" data-icon="whatsapp">Start chat</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-slot"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

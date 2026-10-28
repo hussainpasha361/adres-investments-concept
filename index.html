@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en" class="js">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Adres Investments — Real Estate & Citizenship by Investment</title>
+  <meta name="description" content="Real estate investment and citizenship advisory across Türkiye, Dubai, Greece, Spain, the UK, Cyprus and Indonesia." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="src/styles.css" />
+  <script>
+    (() => {
+      const root = document.documentElement;
+      let seen = false;
+      try { seen = sessionStorage.getItem('adres-intro'); } catch (e) {}
+      // Plays once per browser session; add ?intro to the URL to replay it in a pitch.
+      const play = (!seen || /[?&]intro/.test(location.search)) && !matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (play) root.classList.add('intro-on');
+      setTimeout(() => { if (!window.__revealReady) root.classList.remove('js'); }, 2500);
+      setTimeout(() => { if (!window.__introDone) { root.classList.remove('intro-on'); document.getElementById('intro')?.remove(); } }, 9000);
+    })();
+  </script>
+</head>
+<body data-page="home" data-header="overlay">
+  <div class="intro" id="intro" aria-hidden="true">
+    <div class="intro-panel"></div>
+    <div class="intro-logo"></div>
+    <div class="intro-meta">
+      <span><span class="intro-tag">Real estate & citizenship by investment —</span><span class="intro-city">Istanbul</span></span>
+      <span class="intro-count">000</span>
+    </div>
+    <div class="intro-bar"></div>
+  </div>
+  <div id="header-slot"></div>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-media">
+        <img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=2400&q=80" alt="The Bosphorus, Istanbul, at dusk" fetchpriority="high" />
+      </div>
+      <div class="container hero-content">
+        <p class="eyebrow">Real estate & citizenship by investment</p>
+        <h1 class="display-xl"><span class="line"><span>Your next move.</span></span><span class="line"><span>The right address.</span></span></h1>
+        <p class="hero-sub">Prime property and investment-migration advisory across seven markets, handled end to end from Istanbul.</p>
+
+        <form class="search-dock" action="properties.html" method="get">
+          <span class="scroll-cue"><i></i>Scroll to explore</span>
+          <label><span>Destination</span>
+            <select name="country">
+              <option value="">All markets</option>
+              <option value="turkey">Türkiye</option><option value="dubai">Dubai</option><option value="greece">Greece</option>
+              <option value="spain">Spain</option><option value="uk">United Kingdom</option><option value="cyprus">Cyprus</option><option value="indonesia">Indonesia</option>
+            </select>
+          </label>
+          <label><span>Property type</span>
+            <select name="type">
+              <option value="">Any type</option><option>Apartment</option><option>Villa</option><option>Residence</option><option>Town House</option><option>Commercial</option>
+            </select>
+          </label>
+          <label><span>Budget up to</span>
+            <select name="budget">
+              <option value="">Any budget</option><option value="400000">USD 400,000</option><option value="750000">USD 750,000</option>
+              <option value="1500000">USD 1.5M</option><option value="5000000">USD 5M</option>
+            </select>
+          </label>
+          <label><span>Goal</span>
+            <select name="program">
+              <option value="">Investment only</option><option value="citizenship">Citizenship eligible</option><option value="residency">Residency</option>
+            </select>
+          </label>
+          <button class="btn btn-gold" type="submit" data-icon="arrow">Search</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Statement + stats -->
+    <section class="section">
+      <div class="container">
+        <div class="statement">
+          <div data-reveal>
+            <p class="eyebrow gold">About Adres</p>
+          </div>
+          <div>
+            <h2 class="display-l" data-reveal>One passport is no longer enough. One market shouldn't be either.</h2>
+            <p class="lede" data-reveal>We help international investors buy well, and buy with purpose: a second residence, a stronger passport, a yielding asset. One advisory team handles everything from shortlisting and due diligence to the title deed, the application and the keys.</p>
+            <div class="statement-actions" data-reveal>
+              <a class="btn btn-ink" href="contact.html" data-icon="arrow">Book a private consultation</a>
+              <a class="link-arrow" href="#services" data-icon="arrow">Our services</a>
+            </div>
+          </div>
+        </div>
+        <div class="stats">
+          <div class="stat" data-reveal><strong data-count="500" data-suffix="+">500+</strong><span class="eyebrow">Properties listed</span></div>
+          <div class="stat" data-reveal><strong data-count="350" data-suffix="+">350+</strong><span class="eyebrow">Properties sold</span></div>
+          <div class="stat" data-reveal><strong data-count="250" data-suffix="+">250+</strong><span class="eyebrow">Clients advised</span></div>
+          <div class="stat" data-reveal><strong data-count="10" data-suffix="+">10+</strong><span class="eyebrow">Languages spoken</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Markets -->
+    <section class="section bg-navy" id="markets">
+      <div class="container">
+        <div class="section-head">
+          <div data-reveal>
+            <p class="eyebrow gold">Seven markets</p>
+            <h2 class="display-l">Where we invest</h2>
+          </div>
+          <p class="lede" data-reveal>Each market is chosen for a reason: a passport, a residency, a lifestyle or a yield. We'll tell you which ones fit your goals.</p>
+        </div>
+        <div class="markets">
+          <ul class="market-list" id="marketList"></ul>
+          <figure class="market-frame" id="marketFrame"></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div data-reveal>
+            <p class="eyebrow gold">Selected residences</p>
+            <h2 class="display-l">Featured properties</h2>
+          </div>
+          <a class="link-arrow" href="properties.html" data-icon="arrow" data-reveal>View all properties</a>
+        </div>
+        <div class="prop-grid" id="featured"></div>
+      </div>
+    </section>
+
+    <!-- Programs -->
+    <section class="section bg-mist" id="programs">
+      <div class="container">
+        <div class="section-head">
+          <div data-reveal>
+            <p class="eyebrow gold">Citizenship & residency</p>
+            <h2 class="display-l">Investment migration programs</h2>
+          </div>
+          <p class="lede" data-reveal>Every program we offer is backed by a real estate purchase we can source, verify and manage for you.</p>
+        </div>
+        <div class="programs" id="programRows"></div>
+        <p class="programs-note">Thresholds are indicative and change with legislation. Your advisor will confirm current requirements.</p>
+      </div>
+    </section>
+
+    <!-- Calculator -->
+    <section class="section bg-ink on-dark" id="calculator">
+      <div class="container calc">
+        <div>
+          <p class="eyebrow gold" data-reveal>Investment calculator</p>
+          <h2 class="display-l" data-reveal>What can your investment unlock?</h2>
+          <div class="calc-form" data-reveal>
+            <div>
+              <span class="eyebrow field-label">I'm looking for</span>
+              <div class="seg" id="goalSeg">
+                <button type="button" class="is-on" data-goal="any">Any program</button>
+                <button type="button" data-goal="citizenship">Citizenship</button>
+                <button type="button" data-goal="residency">Residency</button>
+              </div>
+            </div>
+            <div>
+              <label class="eyebrow field-label" for="budget">Budget</label>
+              <div class="range-out" id="budgetOut">USD 450,000</div>
+              <input type="range" id="budget" min="150000" max="2000000" step="25000" value="450000" />
+              <div class="range-scale"><span>USD 150K</span><span>USD 2M+</span></div>
+            </div>
+          </div>
+        </div>
+        <div data-reveal>
+          <p class="eyebrow"><span id="calcCount">0</span> programs within budget</p>
+          <div class="calc-results" id="calcResults" style="margin-top:20px"></div>
+          <a class="btn btn-gold" href="contact.html" data-icon="arrow" style="margin-top:36px">Get a personal assessment</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section" id="services">
+      <div class="container services">
+        <div>
+          <p class="eyebrow gold" data-reveal>What we do</p>
+          <h2 class="display-l" data-reveal style="margin-bottom:48px">One team, from search to keys</h2>
+          <div class="services-media" data-reveal>
+            <img data-parallax src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80" alt="Interior of a contemporary residence" loading="lazy" />
+          </div>
+        </div>
+        <div class="service-list" id="serviceList"></div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section bg-mist">
+      <div class="container quote-wrap">
+        <div data-reveal>
+          <p class="eyebrow gold">Client stories</p>
+          <h2 class="display-m" style="margin-top:18px">Trusted by investors from more than 40 countries</h2>
+          <div class="quote-ctrl">
+            <button class="prev" id="quotePrev" type="button" aria-label="Previous" data-icon="arrow"></button>
+            <button class="next" id="quoteNext" type="button" aria-label="Next" data-icon="arrow"></button>
+            <span class="quote-count" id="quoteCount">01 / 04</span>
+          </div>
+        </div>
+        <div class="quote-stage" id="quoteStage" data-reveal aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- Insights -->
+    <section class="section" id="insights">
+      <div class="container">
+        <div class="section-head">
+          <div data-reveal>
+            <p class="eyebrow gold">Insights</p>
+            <h2 class="display-l">Market notes & guides</h2>
+          </div>
+          <a class="link-arrow" href="#" data-icon="arrow" data-reveal>All insights</a>
+        </div>
+        <div class="insight-grid" id="insightGrid"></div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-band">
+      <img data-parallax src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=2400&q=80" alt="" loading="lazy" />
+      <div class="container">
+        <p class="eyebrow gold" data-reveal>Private consultation</p>
+        <h2 class="display-l" data-reveal>Every move begins with a conversation.</h2>
+        <div class="actions" data-reveal>
+          <a class="btn btn-gold" href="contact.html" data-icon="arrow">Book a consultation</a>
+          <a class="btn btn-line" href="https://wa.me/905331933114" target="_blank" rel="noopener">WhatsApp an advisor</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-slot"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

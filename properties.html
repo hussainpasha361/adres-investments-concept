@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en" class="js">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Properties — Adres Investments</title>
+  <meta name="description" content="Curated residences and investment properties across seven markets, including citizenship-eligible homes in Türkiye." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="src/styles.css" />
+  <script>setTimeout(() => { if (!window.__revealReady) document.documentElement.classList.remove('js'); }, 2500);</script>
+</head>
+<body data-page="properties" data-header="solid">
+  <div id="header-slot"></div>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Properties</span></nav>
+        <h1 class="display-xl"><span class="line"><span>Properties</span></span></h1>
+        <p class="lede">Hand-selected homes and investment assets, each one verified by our legal team. Ask about off-market inventory that isn't listed here.</p>
+      </div>
+    </section>
+
+    <div class="filter-bar">
+      <form class="container filters" id="filters">
+        <label><span>Destination</span><select name="country"><option value="">All markets</option></select></label>
+        <label><span>Type</span>
+          <select name="type"><option value="">Any type</option><option>Apartment</option><option>Villa</option><option>Residence</option><option>Town House</option></select>
+        </label>
+        <label><span>Budget up to</span>
+          <select name="budget"><option value="">Any budget</option><option value="400000">USD 400,000</option><option value="750000">USD 750,000</option><option value="1500000">USD 1.5M</option><option value="5000000">USD 5M</option></select>
+        </label>
+        <label><span>Sort</span>
+          <select name="sort"><option value="">Featured</option><option value="asc">Price, low to high</option><option value="desc">Price, high to low</option></select>
+        </label>
+        <label class="check"><input type="checkbox" name="eligible" /><span class="eyebrow">Citizenship eligible only</span></label>
+      </form>
+    </div>
+
+    <section class="section-tight" style="padding-top:0">
+      <div class="container">
+        <div class="results-head">
+          <p class="eyebrow"><strong id="count">0</strong> properties</p>
+          <a class="link-arrow" href="contact.html" data-icon="arrow">Request off-market listings</a>
+        </div>
+        <div class="prop-grid" id="listing"></div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <img data-parallax src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=2400&q=80" alt="" loading="lazy" />
+      <div class="container">
+        <p class="eyebrow gold" data-reveal>Can't find the right fit?</p>
+        <h2 class="display-l" data-reveal>Tell us the brief. We'll build the shortlist.</h2>
+        <div class="actions" data-reveal>
+          <a class="btn btn-gold" href="contact.html" data-icon="arrow">Speak to an advisor</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-slot"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
