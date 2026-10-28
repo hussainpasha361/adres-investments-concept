@@ -18,7 +18,8 @@
       const play = (!seen || /[?&]intro/.test(location.search)) && !matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (play) root.classList.add('intro-on');
       setTimeout(() => { if (!window.__revealReady) root.classList.remove('js'); }, 2500);
-      setTimeout(() => { if (!window.__introDone) { root.classList.remove('intro-on'); document.getElementById('intro')?.remove(); } }, 9000);
+      // Only for when the scripts never run; once started, intro.js handles its own timeout.
+      setTimeout(() => { if (!window.__introStarted) { root.classList.remove('intro-on'); document.getElementById('intro')?.remove(); } }, 6000);
     })();
   </script>
 </head>

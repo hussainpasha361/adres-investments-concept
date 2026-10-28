@@ -14,8 +14,28 @@ export async function runIntro({ gsap, lenis, onReveal }) {
   const heroImg = document.querySelector('.hero-media img');
   const headerLogo = document.querySelector('.site-header .brand .logo');
 
+  window.__introStarted = true;
   mark.innerHTML = logo({ intro: true });
   lenis?.stop();
+
+  let finished = false;
+  const finish = () => {
+    if (finished) return;
+    finished = true;
+    intro.remove();
+    root.classList.remove('intro-on');
+    window.__introDone = true;
+    try { sessionStorage.setItem('adres-intro', '1'); } catch (e) {}
+    lenis?.start();
+    window.ScrollTrigger?.refresh();
+  };
+  // Never leave the visitor stuck behind the intro, however slow the page is.
+  setTimeout(() => {
+    if (finished) return;
+    gsap.set('.site-header .primary, .site-header .hdr-actions', { clearProps: 'all' });
+    gsap.set(heroImg, { scale: 1 });
+    finish();
+  }, 14000);
 
   const imageReady = new Promise((r) => {
     if (!heroImg || heroImg.complete) return r();
@@ -61,24 +81,16 @@ export async function runIntro({ gsap, lenis, onReveal }) {
       },
     }, 0.2);
 
-  await Promise.all([build.then(), Promise.race([imageReady, wait(4000)])]);
+  await Promise.all([build.then(), Promise.race([imageReady, wait(3000)])]);
   clearInterval(ticker);
+  if (finished) return;
 
   // FLIP: fly the intro mark onto the header logo.
   const from = mark.getBoundingClientRect();
   const to = headerLogo.getBoundingClientRect();
 
   gsap
-    .timeline({
-      onComplete() {
-        intro.remove();
-        root.classList.remove('intro-on');
-        window.__introDone = true;
-        try { sessionStorage.setItem('adres-intro', '1'); } catch (e) {}
-        lenis?.start();
-        window.ScrollTrigger?.refresh();
-      },
-    })
+    .timeline({ onComplete: finish })
     .to('.intro-meta, .intro-bar', { opacity: 0, duration: 0.4, ease: 'power2.out' }, 0)
     .to(mark, {
       x: to.left - from.left, y: to.top - from.top, scale: to.width / from.width,
