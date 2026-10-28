@@ -164,8 +164,9 @@ body.menu-open { overflow: hidden; }
 .hero-content .eyebrow { color: rgba(255, 255, 255, 0.8); margin-bottom: 24px; display: flex; gap: 14px; align-items: center; }
 .hero-content .eyebrow::before { content: ''; width: 40px; height: 1px; background: var(--gold); }
 .hero h1 { max-width: 13ch; }
-.hero h1 .line { display: block; overflow: hidden; }
-.hero h1 .line > span { display: block; }
+/* Line masks for the rise-in animation; padding keeps descenders (g, p, y) inside the mask. */
+h1 .line { display: block; overflow: hidden; padding-bottom: 0.14em; margin-bottom: -0.14em; }
+h1 .line > span { display: block; }
 .hero-sub { margin-top: 28px; max-width: 46ch; color: rgba(255, 255, 255, 0.82); font-size: clamp(1rem, 1.3vw, 1.15rem); }
 
 .search-dock {
